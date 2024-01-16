@@ -11,9 +11,8 @@ project uses metric system
 
 import numpy as np 
 import scipy.constants as scipy
-import numpy as np
 import matplotlib
-
+import timedilationequations
 
 time_conversions_seconds = {
 
@@ -29,19 +28,6 @@ EARTH_MASS = 5.9722*(10**24)
 EARTH_RADIUS = 6378
 G = scipy.gravitational_constant
 C = scipy.speed_of_light
-
-
-def schwarzchild_radius(gravitational_constant, mass ,speed_of_light):
-    #calculates the radius the users input needs to be in 
-    return (2* float(gravitational_constant) * float(mass) / float(speed_of_light**2))       
-        
-def conversion_seconds(seconds, time_int, time_conv):
-    #calculates conversions (in seconds)
-    return seconds * (time_int/time_conv)
-
-def time_dilation(mass, radius):
-    # calculates time dilation compared to a normal time
-    return np.sqrt(1 - ((2*G*mass)/radius*C**2))
 
 
 radius = []
