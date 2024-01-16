@@ -5,7 +5,7 @@ these are equations to be somehow combined with our GUI
 mass is in metres and takes user input
 make sure grav constant and speed of light are in METRES
 
-figure out how to do error handling for conversions()
+project uses metric system
 
 '''
 
@@ -13,6 +13,7 @@ import numpy as np
 import scipy.constants as scipy
 import numpy as np
 import matplotlib
+
 
 time_conversions_seconds = {
 
@@ -23,8 +24,12 @@ time_conversions_seconds = {
 
 }
 
+
+EARTH_MASS = 5.9722*(10**24)
+EARTH_RADIUS = 6378
 G = scipy.gravitational_constant
 C = scipy.speed_of_light
+
 
 def schwarzchild_radius(gravitational_constant, mass ,speed_of_light):
     #calculates the radius the users input needs to be in 
@@ -33,6 +38,10 @@ def schwarzchild_radius(gravitational_constant, mass ,speed_of_light):
 def conversion_seconds(seconds, time_int, time_conv):
     #calculates conversions (in seconds)
     return seconds * (time_int/time_conv)
+
+def time_dilation(mass, radius):
+    # calculates time dilation compared to a normal time
+    return np.sqrt(1 - ((2*G*mass)/radius*C**2))
 
 
 radius = []
@@ -78,14 +87,15 @@ while True:
     else:
         print('Invalid, try again')
 
-valid = True
 distance_limit = radius[0]
-while valid:    
+while True:    
     black_hole_distance = int(input('Your distance from the black hole: '))
     if black_hole_distance > distance_limit:
-        valid == True
+        print('Placeholder')
+        break
     else:
         black_hole_distance = print(f'You are in range of the Schwarzchild radius which means you (including light) cannot escape, thus we would not know what would happen enter a value greater than {distance_limit} meters: ')
+
 
 
 
