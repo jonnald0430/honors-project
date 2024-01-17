@@ -12,7 +12,7 @@ def conversion_seconds(seconds, time_int, time_conv):
     #calculates conversions (in seconds)
     return seconds * (time_int/time_conv)
 
-def time_dilation(mass, radius):
+def time_dilation(gravitational_constant, mass, radius, speed_of_light):
     # calculates time dilation compared to a normal time
-    return np.sqrt(1 - ((2*G*mass)/radius*C**2))
+    return np.sqrt(1 - ((2*gravitational_constant*mass)/radius*speed_of_light**2))
 
