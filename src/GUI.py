@@ -82,10 +82,3 @@ while True:
     else:
         black_hole_distance = print(f'You are in range of the Schwarzchild radius which means you (including light) cannot escape, thus we would not know what would happen enter a value greater than {distance_limit} meters: ')
 
-
-
-
-
-
-
-
