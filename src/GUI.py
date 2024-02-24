@@ -12,7 +12,7 @@ project uses metric system
 import numpy as np 
 import scipy.constants as scipy
 import matplotlib
-import equations as eq
+import libs.inputGUIequations as eq
 
 
 time_conversions_seconds = {
