@@ -3,8 +3,108 @@
     <head>
         <meta charset = "UTF-8">
         <title>Honors Project</title>
+        <script defer src="https://pyscript.net/alpha/pyscript.js"></script>        
+        <style>
+            .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+            }
+
+            /* Style the buttons that are used to open the tab content */
+            .tab button {
+            font-size: 18px;
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 20px 262.8px;
+            transition: 0.3s;
+            }
+
+            /* Change background color of buttons on hover */
+            .tab button:hover {
+            background-color: #ddd;
+            }
+
+            /* Create an active/current tablink class */
+            .tab button.active {
+            background-color: #ccc;
+            }
+
+            /* Style the tab content */
+            .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+            }
+        </style>
     </head>
     <body>
-        <h1>Honor's Project</h1>
+        <div class="tab">
+            <button class="tablinks active" onclick="openTab(event, 'Simulation')">Simulation</button>
+            <button class="tablinks" onclick="openTab(event, 'Guide to Simulation')">Guide to Simulation</button>
+            <button class="tablinks" onclick="openTab(event, 'Credits')">Credits</button>
+        </div>
+
+        <div id="Simulation" class="tabcontent" style="display: flex; align-items: flex-start; position: relative;">
+            <div style="flex: 1;">
+                <h1>Time Dilation and Black Holes</h1>
+                <img src="blackhole-ss.png" style="display: block; max-width: 100%;">
+            </div>
+            <div id="formContainer" style="position: absolute; top: 200px; left: 40%; transform: translateX(50%); width: 50%; max-width: 400px;">
+                <form action="/action_page.php">
+                    <label for="fname" style="margin-bottom: 10px; display: block; font-size: 18px; font-weight: bold;">Enter black hole mass:</label>
+                    <input type="text" id="fname" name="fname" style="margin-bottom: 20px; font-size: 16px; padding: 10px;"><br>
+                    <label for="lname" style="margin-bottom: 10px; display: block; font-size: 18px; font-weight: bold;">Enter your mass:</label>
+                    <input type="text" id="lname" name="lname" style="margin-bottom: 20px; font-size: 16px; padding: 10px;"><br>
+                    <label for="sname" style="margin-bottom: 10px; display: block; font-size: 18px; font-weight: bold;">Enter distance from black hole:</label>
+                    <input type="text" id="sname" name="sname" style="margin-bottom: 20px; font-size: 16px; padding: 10px;"><br>
+                    <label for="xname" style="margin-bottom: 10px; display: block; font-size: 18px; font-weight: bold;">Enter how long you will be here:</label>
+                    <input type="text" id="xname" name="xname" style="margin-bottom: 20px; font-size: 16px; padding: 10px;"><br>
+                    <input type="submit" value="Submit" style="font-size: 18px; padding: 10px;">
+                </form>
+            </div>
+        </div>
+        
+        <div id="Guide to Simulation" class="tabcontent">
+            <h1>Guide to Simulation</h1>
+        </div>
+
+        <div id="Credits" class="tabcontent">
+            <h1>Credits:</h1>
+            <font size="+2">Gabriel Hapin</font>
+            <p>Project Manager/Coordinator</p>
+            <font size="+2">Jonnald Hernandez</font>
+            <p>Lead Software Engineer/Web Developer</p>
+            <h2>Technologies used:</h2>
+            <p>
+                <a href="https://flask.palletsprojects.com/en/3.0.x/">Python: Flask Framework</a>
+            </p>
+            <p>
+                <a href="https://www.theodinproject.com">HTML/CSS/JavaScript</a>
+            </p>
+        </div>
+
+        <script>
+            function openTab(evt, tabName) {
+                var i, tabcontent, tablinks;
+
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+
+                tablinks = document.getElementsByClassName("tablinks");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" active", "")
+                }
+                
+                document.getElementById(tabName).style.display = "block";
+                evt.currentTarget.className += "active";
+            }
+        </script>
     </body>
 </html>
