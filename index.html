@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Circle Mass Input</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh; /* Make the body fill the entire viewport height */
+      display: flex;
+      justify-content: center; /* Center the container horizontally */
+      align-items: flex-end; /* Align the container to the bottom */
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 20px;
+    }
+
+    canvas {
+      border: 1px solid black;
+      margin-right: 20px;
+    }
+
+    .inputs {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .inputs > * {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <canvas id="myCanvas" width="450" height="400"></canvas>
+        <div class="inputs">
+          <label for="massBlackHoleInput">Enter mass (kg):</label>
+          <input type="number" id="massBlackHoleInput" placeholder="Enter mass in kg" step="0.01">
+    
+          <label for="radiusInput">Enter radius:</label>
+          <input type="number" id="radiusInput" placeholder="Enter radius" step="1">
+    
+          <label for="colorInput">Enter color:</label>
+          <input type="text" id="colorInput" placeholder="Enter color">
+    
+          <label for="opacityInput">Enter opacity:</label>
+          <input type="number" id="opacityInput" placeholder="Enter opacity" step="0.01">
+        </div>
+      </div>
+  <script>
+
+    function drawCircle(ctx, x, y, radius, color) {
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, 2 * Math.PI);
+      ctx.fillStyle = color;
+      ctx.fill();
+    }
+
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+
+    function handleInputChange() {
+      const massBlackHoleInput = document.getElementById("massBlackHoleInput");
+      const mass = parseFloat(massBlackHoleInput.value); // Convert input value to a floating-point number
+      const radius = Math.sqrt(mass / Math.PI); // Calculate radius based on mass
+      const color = "red"; // You can choose any color you want
+      // Clear canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      // Draw circle with calculated radius
+      drawCircle(ctx, canvas.width / 2, canvas.height / 2, radius, color);
+    }
+
+    // Add event listener to input
+    document.getElementById("massBlackHoleInput").addEventListener("input", handleInputChange);
+
+    // Initially draw circle with default mass
+    handleInputChange();
+  </script>
+</body>
+</html>

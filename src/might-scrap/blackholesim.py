@@ -13,7 +13,7 @@ RED = (188, 39, 50)
 DARK_GREY = (80, 78, 81)
 BLACK = (0, 0, 0)
 
-FONT = pygame.font.SysFont("comicsans", 16)
+FONT = pygame.font.SysFont("arial", 16)
 
 class Planet:
 	AU = 149.6e6 * 1000

@@ -19,7 +19,7 @@
             border: none;
             outline: none;
             cursor: pointer;
-            padding: 20px 262.8px;
+            padding: 20px 150px 20px 625px; /* Adjust the padding as needed */
             transition: 0.3s;
             }
 
@@ -45,14 +45,13 @@
     <body>
         <div class="tab">
             <button class="tablinks active" onclick="openTab(event, 'Simulation')">Simulation</button>
-            <button class="tablinks" onclick="openTab(event, 'Guide to Simulation')">Guide to Simulation</button>
-            <button class="tablinks" onclick="openTab(event, 'Credits')">Credits</button>
+            <button class="tablinks" onclick="openTab(event, 'Documentation')">Documentation</button>
         </div>
 
         <div id="Simulation" class="tabcontent" style="display: flex; align-items: flex-start; position: relative;">
             <div style="flex: 1;">
                 <h1>Time Dilation and Black Holes</h1>
-                <img src="blackhole-ss.png" style="display: block; max-width: 100%;">
+                <img src="sim-screenshot.png" style="display: block; max-width: 100%;">
             </div>
             <div id="formContainer" style="position: absolute; top: 200px; left: 40%; transform: translateX(50%); width: 50%; max-width: 400px;">
                 <form action="/action_page.php">
@@ -68,24 +67,37 @@
                 </form>
             </div>
         </div>
-        
-        <div id="Guide to Simulation" class="tabcontent">
-            <h1>Guide to Simulation</h1>
-        </div>
 
-        <div id="Credits" class="tabcontent">
-            <h1>Credits:</h1>
-            <font size="+2">Gabriel Hapin</font>
-            <p>Project Manager/Coordinator</p>
-            <font size="+2">Jonnald Hernandez</font>
-            <p>Lead Software Engineer/Web Developer</p>
+        <div id="Documentation" class="tabcontent">
+            <h2>Physics:</h2>
+            <ul>
+                <li>Gravitational Time Dilation through a Black Hole</li>
+                <li>Schwarzchild Radius</li>
+            </ul>
+
             <h2>Technologies used:</h2>
-            <p>
-                <a href="https://flask.palletsprojects.com/en/3.0.x/">Python: Flask Framework</a>
-            </p>
-            <p>
-                <a href="https://www.theodinproject.com">HTML/CSS/JavaScript</a>
-            </p>
+            <ul>
+                <li>JavaScript</li>
+                <li>HTML</li>
+                <li>CSS</li>
+            </ul>
+
+            <h2>Links:</h2>
+            
+            <a href="https://www.theodinproject.com">HTML/CSS/JavaScript</a>
+
+            <h2>Credits:</h2>
+            <h4>Gabriel Hapin-Aranda</h4>
+            <ul>
+                <li>Project Manager</li>
+                <li>Physicist</li>
+            </ul>
+
+            <h4>Jonnald Hernandez</h4>
+            <ul>
+                <li>Lead Web Developer</li>
+                <li>Simulation Modeler</li>
+            </ul>
         </div>
 
         <script>
